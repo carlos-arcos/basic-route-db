@@ -10,7 +10,7 @@ export const Layout: React.FC = () => {
     <>
       <Navbar />
       <Switch>
-        <Route excat path="/" component={Dashboard} />
+        <Route exact path="/" component={Dashboard} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/userprofile" component={Userprofile} />
       </Switch>
