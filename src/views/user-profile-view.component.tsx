@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const Userprofile: React.FC = () => {
+export const UserprofileView: React.FC = () => {
   return <h3>Userprofile</h3>;
 };

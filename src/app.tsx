@@ -1,19 +1,49 @@
 import React from 'react';
-import { HashRouter } from 'react-router-dom';
-import { hot } from 'react-hot-loader/root';
+import { HashRouter, Switch } from 'react-router-dom';
 import './assets/css/app.css';
-import { Sidebar } from './components/sidebar';
-import { Layout } from './components/layout';
+import AppRoute from './AppRoute.component';
+import { PrivateLayout } from './components/layout/private';
+import { PublicLayout } from './components/layout/public';
+import {
+  HomeView,
+  AboutView,
+  LoginView,
+  DashboardView,
+  UserprofileView,
+} from './views';
 
-const App: React.FunctionComponent = () => {
+const App = () => {
   return (
-    <div className="grid-container">
-      <HashRouter>
-        <Sidebar />
-        <Layout />
-      </HashRouter>
-    </div>
+    <HashRouter>
+      <Switch>
+        <AppRoute exact path="/" component={HomeView} layout={PublicLayout} />
+        <AppRoute
+          exact
+          path="/about"
+          component={AboutView}
+          layout={PublicLayout}
+        />
+        <AppRoute
+          exact
+          path="/login"
+          component={LoginView}
+          layout={PublicLayout}
+        />
+        <AppRoute
+          exact
+          path="/dashboard"
+          component={DashboardView}
+          layout={PrivateLayout}
+        />
+        <AppRoute
+          exact
+          path="/userprofile"
+          component={UserprofileView}
+          layout={PrivateLayout}
+        />
+      </Switch>
+    </HashRouter>
   );
 };
 
-export default hot(App);
+export default App;
