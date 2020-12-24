@@ -8,11 +8,9 @@ interface Layout {
   layout: any;
 }
 
-const AppRoute: React.FC<Layout> = ({
-  component: Component,
-  layout: Layout,
-  ...rest
-}) => {
+export const AppRoute: React.FC<Layout> = props => {
+  const { component: Component, layout: Layout, ...rest } = props;
+
   return (
     <Route
       {...rest}
@@ -24,5 +22,3 @@ const AppRoute: React.FC<Layout> = ({
     />
   );
 };
-
-export default AppRoute;

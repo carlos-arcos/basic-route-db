@@ -68,6 +68,8 @@ nav.pub-menu ul li a:hover {
 .navbar {
   grid-area: navbar;
   border: solid 1px green;
+  display: flex;
+  justify-content: space-between;
 }
 
 .sidebar {
